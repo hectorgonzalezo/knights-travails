@@ -6,7 +6,6 @@ class GameBoardMoves {
   }
 
   static #buildAdjacencyList() {
-    console.log("build");
     // empty 2d list of size 8 x 8
     // It will hold all possible moves in each square
     const adjacencyArray = [...Array(8)].map((_) => Array(8).fill(0));
@@ -34,7 +33,7 @@ class GameBoardMoves {
       optionsArray.push([position[0] + num, position[1] - other]);
     });
 
-    //filter out of bound moves
+    // . filter out of bound moves
     const filteredArray = optionsArray.filter((move) => {
       return !move.some((number) => number < 0 || number > 7);
     });
@@ -44,15 +43,17 @@ class GameBoardMoves {
 
 class Knight {
   currentPosition;
+
   #queue = [];
-  #tree = {}
+
+  #tree = {};
 
   // Prints and returns the shortest path between start and end;
-  static moves(start, end){
+  static moves(start, end) {
     const knight = new Knight(start);
     const shortestPath = knight.getShortestPath(end);
-   knight.prettyPrint(shortestPath);
-   return shortestPath
+    knight.prettyPrint(shortestPath);
+    return shortestPath;
   }
 
   constructor(start) {
@@ -63,11 +64,11 @@ class Knight {
   }
 
   getShortestPath(end) {
-    if(end === undefined){
-        throw new Error('No end provided in getShortestPath()')
+    if (end === undefined) {
+      throw new Error("No end provided in getShortestPath()");
     }
-    const currentPath = this.#queue[0]
-    const currentMove = currentPath[this.#queue[0].length -1];
+    const currentPath = this.#queue[0];
+    const currentMove = currentPath[this.#queue[0].length - 1];
 
     // Breadth-first search
     // Base case, if element to be searched is end, return it
@@ -75,15 +76,15 @@ class Knight {
       return currentPath;
     }
 
-    //build an array for every case
+    // build an array for every case
     const availableMoves =
       GameBoardMoves.adjacencyList[currentMove[0]][currentMove[1]];
 
     // En#queue children
     availableMoves.forEach((move) => {
-        //keep track of the path so far for each branch
-        const copyOfParentPath = [...currentPath]
-        copyOfParentPath.push(move)
+      // keep track of the path so far for each branch
+      const copyOfParentPath = [...currentPath];
+      copyOfParentPath.push(move);
       this.#queue.push(copyOfParentPath);
     });
 
@@ -93,20 +94,20 @@ class Knight {
     // Recursively search #queue
     const endMove = this.getShortestPath(end);
 
-    return endMove 
+    return endMove;
   }
 
-  prettyPrint(path){
+  prettyPrint(path) {
     let pathString = `You made it in ${path.length} moves!  Here's your path: \n`;
-    path.forEach(move => {
-        pathString += `[${move[0]}, ${move[1]}]\n`
-    })
-    console.log(pathString)
+    path.forEach((move) => {
+      pathString += `[${move[0]}, ${move[1]}]\n`;
+    });
+    console.log(pathString);
   }
 }
 
+// Knight.moves([0, 0], [1, 2]); //[[0,0],[1,2]]
+// Knight.moves([3, 3], [4, 3]); // [3,3] [4,5] [2,4] [4,3]
+// Knight.moves([0, 4], [7, 7])
 
-
-Knight.moves([0, 0], [1, 2]); //[[0,0],[1,2]]
-Knight.moves([3, 3], [4, 3]); // [3,3] [4,5] [2,4] [4,3]
-Knight.moves([0, 4], [7, 7])
+export default Knight;

@@ -1,118 +1,152 @@
-@import './reset.css';
+@import "./reset.css";
 
-
-:root{
-    --color-dark: 	#CD853F;
-    --color-light: #F5DEB3;
-    --color-border:#8B4513; 
+:root {
+  --color-dark: #cd853f;
+  --color-light: #f5deb3;
+  --color-border: #8b4513;
 }
 
 /* *{
     outline: dashed red;
 } */
 
-body{
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 1fr 6fr 50px;
-    align-items: center;
-    justify-items: center;
-    background-color: grey;
-    gap: 10px;
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 6fr 50px;
+  align-items: center;
+  justify-items: center;
+  background-color: grey;
+  gap: 10px;
 }
 
-body> div:first-child{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    align-self: stretch;
+body > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  align-self: stretch;
 }
 
-body > div:first-child > div{
-    display: flex;
-    gap: 20px;
+body > div:first-child > div {
+  display: flex;
+  gap: 20px;
 }
-h1{
-    color: aliceblue;
-    font-size: 1.5rem;
-}
-
-#instructions{
-    background-color: aliceblue;
-    padding: 10px;
-    justify-self: end;
-    font-size: 1.2rem;
-    width: 200px;
-    text-align: center;
-    border-radius: 20%;
+h1 {
+  color: aliceblue;
+  font-size: 1.6rem;
 }
 
-#board{
-    width: 600px;
-    height: 600px;
-    display: grid;
-    grid-template-rows: repeat(8, 1fr);
-    border: solid 10px var(--color-border);
+b {
+  font-weight: bold;
+  color: rgb(199, 37, 37);
 }
 
-.row{
-    display: grid;
-    grid-template-columns: repeat(8,  1fr);
+body button {
+  background-color: var(--color-border);
+  border-radius: 0.8rem;
+  box-shadow: 2px 2px 4px black;
+  padding: 10px;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-light);
 }
 
-.row:nth-child(even) .square:nth-child(even){
-    background-color: var(--color-dark);
+button:hover {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  cursor: pointer;
 }
 
-.row:nth-child(even) .square:nth-child(odd){
-    background-color: var(--color-light);
+button:active {
+  position: relative;
+  left: 2px;
+  top: 1px;
+  box-shadow: 1px 1px 2px black;
 }
 
-.row:nth-child(odd) .square:nth-child(even){
-    background-color: var(--color-light);
+#instructions {
+  background-color: aliceblue;
+  padding: 10px;
+  justify-self: end;
+  font-size: 1.5rem;
+  width: 200px;
+  text-align: center;
+  border-radius: 1rem;
 }
 
-.row:nth-child(odd) .square:nth-child(odd){
-    background-color: var(--color-dark);
+#board {
+  width: 600px;
+  height: 600px;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  border: solid 10px var(--color-border);
 }
 
+.row {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
 
+.row:nth-child(even) .square:nth-child(even) {
+  background-color: var(--color-dark);
+}
 
-.square:hover{
-    background-image: url('./assets/knight.png') ;
-    background-repeat: no-repeat;
+.row:nth-child(even) .square:nth-child(odd) {
+  background-color: var(--color-light);
+}
+
+.row:nth-child(odd) .square:nth-child(even) {
+  background-color: var(--color-light);
+}
+
+.row:nth-child(odd) .square:nth-child(odd) {
+  background-color: var(--color-dark);
+}
+
+.square:hover {
+  background-image: url("./assets/knight.png");
+  background-repeat: no-repeat;
   background-position: center 0px;
 }
 
-.square.inactive:hover{
-    background-image: none;
+.square:not(.chosen).inactive:hover {
+  background-image: none;
 }
 
-.square.chosen{
-    background-image: url('./assets/knight.png') ;
-    background-repeat: no-repeat;
+.square.chosen {
+  background-image: url("./assets/knight.png");
+  background-repeat: no-repeat;
   background-position: center 0px;
 }
 
-footer {    
-    margin-top: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 100%;
-    gap: 2vw;
-    background-color: var(--color-background);
-    color: white;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-      Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 1.5rem;
-  }
-  
-  #github-logo {
-    height: 30px;
-  }
-  
+:root .row > div.square.inPath {
+  background-color: rgb(221, 93, 93);
+}
 
+.square {
+  padding: 5px;
+  font-size: 1.5rem;
+  color: rgb(36, 62, 9);
+}
+
+footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+  gap: 2vw;
+  background-color: var(--color-background);
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1.5rem;
+}
+
+#github-logo {
+  height: 30px;
+}

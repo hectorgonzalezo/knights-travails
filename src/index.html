@@ -1,105 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Knights Travails</title>
-</head>
-<body>
+  </head>
+  <body>
     <div>
-        <h1>Press on two squares to show shortest path using Knight</h1>
-        <h2 id="instructions">Select start position</h2>
+      <h1>Press on two squares to show shortest path using Knight</h1>
+      <div>
+        <h2 id="instructions">Select <b>start</b> position</h2>
+        <button>Reset</button>
+      </div>
     </div>
     <div id="board">
-        <div class="row" data="0">
-            <div class="square" data="0"></div>
-            <div class="square" data="1"></div>
-            <div class="square" data="2"></div>
-            <div class="square" data="3"></div>
-            <div class="square" data="4"></div>
-            <div class="square" data="5"></div>
-            <div class="square" data="6"></div>
-            <div class="square" data="7"></div>
-        </div>
-        <div class="row" data="1">
-            <div class="square" data="0"></div>
-            <div class="square" data="1"></div>
-            <div class="square" data="2"></div>
-            <div class="square" data="3"></div>
-            <div class="square" data="4"></div>
-            <div class="square" data="5"></div>
-            <div class="square" data="6"></div>
-            <div class="square" data="7"></div>
-                    </div>
-        <div class="row" data="2">
-            <div class="square" data="0"></div>
-            <div class="square" data="1"></div>
-            <div class="square" data="2"></div>
-            <div class="square" data="3"></div>
-            <div class="square" data="4"></div>
-            <div class="square" data="5"></div>
-            <div class="square" data="6"></div>
-            <div class="square" data="7"></div>
-        </div>
-        <div class="row" data="3">
-            <div class="square" data="0"></div>
-            <div class="square" data="1"></div>
-            <div class="square" data="2"></div>
-            <div class="square" data="3"></div>
-            <div class="square" data="4"></div>
-            <div class="square" data="5"></div>
-            <div class="square" data="6"></div>
-            <div class="square" data="7"></div>
-        </div>
-        <div class="row" data="4">
-            <div class="square" data="0"></div>
-            <div class="square" data="1"></div>
-            <div class="square" data="2"></div>
-            <div class="square" data="3"></div>
-            <div class="square" data="4"></div>
-            <div class="square" data="5"></div>
-            <div class="square" data="6"></div>
-            <div class="square" data="7"></div>
-        </div>
-        <div class="row" data="5">
-            <div class="square" data="0"></div>
-            <div class="square" data="1"></div>
-            <div class="square" data="2"></div>
-            <div class="square" data="3"></div>
-            <div class="square" data="4"></div>
-            <div class="square" data="5"></div>
-            <div class="square" data="6"></div>
-            <div class="square" data="7"></div>
-        </div>
-        <div class="row" data="6">
-            <div class="square" data="0"></div>
-            <div class="square" data="1"></div>
-            <div class="square" data="2"></div>
-            <div class="square" data="3"></div>
-            <div class="square" data="4"></div>
-            <div class="square" data="5"></div>
-            <div class="square" data="6"></div>
-            <div class="square" data="7"></div>
-        </div>
-        <div class="row" data="7">
-            <div class="square" data="0"></div>
-            <div class="square" data="1"></div>
-            <div class="square" data="2"></div>
-            <div class="square" data="3"></div>
-            <div class="square" data="4"></div>
-            <div class="square" data="5"></div>
-            <div class="square" data="6"></div>
-            <div class="square" data="7"></div>
-        </div>
-        
+      <div class="row" data="0">
+        <div class="square" data="0"></div>
+        <div class="square" data="1"></div>
+        <div class="square" data="2"></div>
+        <div class="square" data="3"></div>
+        <div class="square" data="4"></div>
+        <div class="square" data="5"></div>
+        <div class="square" data="6"></div>
+        <div class="square" data="7"></div>
+      </div>
+      <div class="row" data="1">
+        <div class="square" data="0"></div>
+        <div class="square" data="1"></div>
+        <div class="square" data="2"></div>
+        <div class="square" data="3"></div>
+        <div class="square" data="4"></div>
+        <div class="square" data="5"></div>
+        <div class="square" data="6"></div>
+        <div class="square" data="7"></div>
+      </div>
+      <div class="row" data="2">
+        <div class="square" data="0"></div>
+        <div class="square" data="1"></div>
+        <div class="square" data="2"></div>
+        <div class="square" data="3"></div>
+        <div class="square" data="4"></div>
+        <div class="square" data="5"></div>
+        <div class="square" data="6"></div>
+        <div class="square" data="7"></div>
+      </div>
+      <div class="row" data="3">
+        <div class="square" data="0"></div>
+        <div class="square" data="1"></div>
+        <div class="square" data="2"></div>
+        <div class="square" data="3"></div>
+        <div class="square" data="4"></div>
+        <div class="square" data="5"></div>
+        <div class="square" data="6"></div>
+        <div class="square" data="7"></div>
+      </div>
+      <div class="row" data="4">
+        <div class="square" data="0"></div>
+        <div class="square" data="1"></div>
+        <div class="square" data="2"></div>
+        <div class="square" data="3"></div>
+        <div class="square" data="4"></div>
+        <div class="square" data="5"></div>
+        <div class="square" data="6"></div>
+        <div class="square" data="7"></div>
+      </div>
+      <div class="row" data="5">
+        <div class="square" data="0"></div>
+        <div class="square" data="1"></div>
+        <div class="square" data="2"></div>
+        <div class="square" data="3"></div>
+        <div class="square" data="4"></div>
+        <div class="square" data="5"></div>
+        <div class="square" data="6"></div>
+        <div class="square" data="7"></div>
+      </div>
+      <div class="row" data="6">
+        <div class="square" data="0"></div>
+        <div class="square" data="1"></div>
+        <div class="square" data="2"></div>
+        <div class="square" data="3"></div>
+        <div class="square" data="4"></div>
+        <div class="square" data="5"></div>
+        <div class="square" data="6"></div>
+        <div class="square" data="7"></div>
+      </div>
+      <div class="row" data="7">
+        <div class="square" data="0"></div>
+        <div class="square" data="1"></div>
+        <div class="square" data="2"></div>
+        <div class="square" data="3"></div>
+        <div class="square" data="4"></div>
+        <div class="square" data="5"></div>
+        <div class="square" data="6"></div>
+        <div class="square" data="7"></div>
+      </div>
     </div>
-<footer>
-    <h2>Héctor González Orozco</h2>
-    <a href="https://github.com/hectorgonzalezo/knights-travails">
-      <img alt="github logo" id="github-logo"
-      src=<%=require("./assets/github-logo.png")%> >
-    </a>
-  </footer>
-</body>
+    <footer>
+      <h2>Héctor González Orozco</h2>
+      <a href="https://github.com/hectorgonzalezo/knights-travails">
+        <img alt="github logo" id="github-logo"
+        src=<%=require("./assets/github-logo.png")%> >
+      </a>
+    </footer>
+  </body>
 </html>
