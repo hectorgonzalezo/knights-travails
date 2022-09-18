@@ -130,6 +130,7 @@ button:active {
   padding: 5px;
   font-size: 1.5rem;
   color: rgb(36, 62, 9);
+  transition: background-color 1s;
 }
 
 footer {

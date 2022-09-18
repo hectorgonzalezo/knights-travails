@@ -3,6 +3,7 @@ import Knight from "./knightTravails";
 
 const view = (function () {
   const instructions = document.querySelector("#instructions > b");
+  const squares = document.querySelectorAll(".square");
 
   function chooseSquare(square) {
     square.classList.add("chosen");
@@ -25,6 +26,14 @@ const view = (function () {
     );
     correspondingSquare.innerText = `${i + 1}`;
     correspondingSquare.classList.add("inPath");
+    correspondingSquare.classList.add("chosen");
+  }
+
+  function removeKnight(move) {
+    const correspondingSquare = document.querySelector(
+      `.row:nth-child(${move[0] + 1}) > .square:nth-child(${move[1] + 1})`
+    );
+    correspondingSquare.classList.remove("chosen");
   }
 
   function changeInstruction(text) {
@@ -32,8 +41,16 @@ const view = (function () {
   }
 
   function renderPath(moves) {
-    moves.forEach((move, i) => {
-      addMove(move, i);
+    moves.forEach((move, i, array) => {
+      let previousKnight;
+      // Remove previous knight
+      if (i >= 1) {
+        previousKnight = array[i - 1];
+      }
+      setTimeout(() => removeKnight(previousKnight), 1000 * i);
+      
+      // Add next
+      setTimeout(() => addMove(move, i), 1000 * i);
     });
   }
 
